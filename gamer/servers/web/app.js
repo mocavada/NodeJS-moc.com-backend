@@ -39,10 +39,19 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.use((request, response, next) => {
-  console.log(new Date().toISOString(), request.method, request.originalUrl);
-  return next();
+    console.log(new Date().toISOString(), request.method, request.originalUrl);
+    return next();
 })
 
+
 app.use(require('./router'));
+
+
+app.use((request, response) => {
+  console.log(new Date().toISOString(), request.method, request.originalUrl, '404');
+  return response.status(404).render('404', {
+    title: '404',
+  });
+});
 
 module.exports = app;
