@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const AssistantV2 = require("ibm-watson/assistant/v2");
 const { IamAuthenticator } = require("ibm-watson/auth");
+const tunnel = require("tunnel");
 
 //2.1 Create instance of Assistance
 
@@ -13,10 +14,14 @@ const authenticator = new IamAuthenticator({
 
 //2.3 Connect to Assistant
 const assistant = new AssistantV2({
-    version: '2021-05-26',
-    authenticator: authenticator,
-    serviceUrl: process.env.WATSON_ASSISTANT_URL,
-    disableSslVerification: true,
+    version: '2019-06-14',
+    authenticator: process.env.WATSON_ASSISTANT_APIKEY,
+    ur: process.env.WATSON_ASSISTANT_URL,
+    httpsAgent: tunnel.httpsOverHttp({
+        host: '1.2.3.4',
+        port: 1234,
+      }),
+      proxy: false,
   });
 
 //3. Route to Handle Session Token

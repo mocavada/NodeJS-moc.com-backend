@@ -10,7 +10,7 @@ Node.js developers often consider MongoDB to be their main choice when building 
 - MongoDB
 - MySQL
 - Redis
-- Mongoose
+- Mongoosesud
 - Sequelize
 
 ## Instructions
