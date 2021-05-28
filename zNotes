@@ -1,0 +1,6 @@
+#Gamer Initiate CLI
+$ docker-compose up -d
+$ ./node_modules/.bin/knex migrate:latest
+$ pm2 start ./pm2.config.js
+
+
