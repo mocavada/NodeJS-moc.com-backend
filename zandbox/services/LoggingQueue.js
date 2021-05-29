@@ -3,6 +3,7 @@ const logUpdate = require('log-update');
 const toX = () => 'X';
 
 class LoggingQueue {
+
     constructor(promises=[], concurrentCount=1) {
         this.concurrent = concurrentCount;
         this.total = promises.length;
@@ -10,6 +11,8 @@ class LoggingQueue {
         this.running = [];
         this.complete = [];
     }
+
+    name = () => console.log('Service Name:', this.constructor.name);
 
     // return true : task in running < task running at the same time & there is task in todo
     // return false: if all are 0
@@ -28,7 +31,7 @@ class LoggingQueue {
 
     run() {
         while (this.runAnother) {
-            var promise = this.todo.shift();
+            let promise = this.todo.shift();
            
             promise.then(() => {
                 this.complete.push(this.running.shift());
@@ -39,9 +42,7 @@ class LoggingQueue {
             this.running.push(promise);
             this.graphTask();
         }
-        
         process.exit
-        
     }
 }
 
