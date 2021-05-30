@@ -4,3 +4,6 @@ $ ./node_modules/.bin/knex migrate:latest
 $ pm2 start ./pm2.config.js
 
 
+
+#Restobot
+~/Desktop/doCode/ngrok http 3000

@@ -2,4 +2,14 @@ maxcoin/node_modules
 shopper/node_modules
 chatbot/node_modules
 gamer/node_modules
-zandbox/node_modules
+restobot/node_modules
+*/.env
+
+
+/.DS_Store
+/*/.DS_Store
+/*/*/.DS_Store
+
+
+
+
