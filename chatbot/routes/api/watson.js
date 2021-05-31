@@ -15,7 +15,7 @@ const authenticator = new IamAuthenticator({
 const assistant = new AssistantV2({
     version: '2021-05-26',
     authenticator: authenticator,
-    serviceUrl: process.env.WATSON_ASSISTANT_URL,
+    url: process.env.WATSON_ASSISTANT_URL,
     disableSslVerification: true,
   });
 
