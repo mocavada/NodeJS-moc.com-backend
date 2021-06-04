@@ -1,7 +1,7 @@
 
 const LogQueue = require('./examples/LoggingQueue')
 const ApiCalls = require('./examples/APICalls')
-const StreamServe = require('./examples/StreamService');
+const { FileStream, HTTPStream, ReplaceText }  = require('./examples/StreamService');
 const data = require('./lib/utils/task-simulator');
 const localStorage = require('./examples/LocalStorage');
 
@@ -32,6 +32,10 @@ const localStorage = require('./examples/LocalStorage');
 //     localStorage.clear();
 // }
 
-/// 4. HTTPStream.js - (Pipe Streams)
-var watch = new StreamServe();
-watch.streamOnline();
+/// 4. StreamService.js - (Pipe, Transform, Pipe Streams)
+// var file = new FileStream();
+// file.readWriteStream();
+var watch = new HTTPStream();
+watch.videoStream();
+// var xStream = new ReplaceText('X');
+// process.stdin.pipe(xStream).pipe(process.stdout);
