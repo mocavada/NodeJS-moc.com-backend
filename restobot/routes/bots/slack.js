@@ -14,7 +14,7 @@ module.exports = (params) => {
 
   async function handleMention(event) {
     return slackWebClient.chat.postMessage({
-      text: 'Hi there, I\'m Kuya. What can I do for you?',
+      text: 'Hi there, What can I do for you?',
       channel: event.channel,
       username: 'Marco',
     });
