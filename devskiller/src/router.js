@@ -10,7 +10,21 @@ const routers = [
 ];
 
 module.exports = function(request, response) {
-  if (routers[0].handle(request, response) !== routerHandleResult.HANDLED) {
-    respondWith404NotFound(response);
-  };
+
+  const pathURL = request.url;
+
+  switch(pathURL) {
+    case '/ping':
+      if (routers[0].handle(request, response) !== routerHandleResult.HANDLED) {
+        respondWith404NotFound(response);
+      };
+      break;
+    case '/contacts':
+      if (routers[1].handle(request, response) !== routerHandleResult.HANDLED) {
+        respondWith404NotFound(response);
+      };
+      break;
+  }
+  
+
 };
