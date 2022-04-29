@@ -26,6 +26,7 @@ describe('GET /contacts', () => {
       phone: '222-333-444',
       addressLines: ['Lake Cottage', 'Waters', 'Sealand'],
     });
+    
     fakeDatabase.insertIntoContacts(contact1);
     fakeDatabase.insertIntoContacts(contact2);
 

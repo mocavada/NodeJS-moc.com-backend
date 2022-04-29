@@ -1,5 +1,7 @@
+const { url } = require('inspector');
 const {
   respondWith404NotFound,
+  urlPathOf,
 } = require('./httpHelpers');
 const { routerHandleResult } = require('./routerHandleResult');
 
@@ -10,7 +12,38 @@ const routers = [
 ];
 
 module.exports = function(request, response) {
-  if (routers[0].handle(request, response) !== routerHandleResult.HANDLED) {
-    respondWith404NotFound(response);
-  };
+
+  var pathURL = urlPathOf(request);
+  var subPath = pathURL.split("/").pop();
+  console.log(subPath);
+
+  switch(pathURL) {
+    case '/':
+    case '/ping':
+       if (routers[0].handle(request, response) !== routerHandleResult.HANDLED) {
+        respondWith404NotFound(response);
+      };
+      break;
+    case '/contacts':
+      if (routers[1].handle(request, response) !== routerHandleResult.HANDLED) {
+        respondWith404NotFound(response);
+      };
+      break;
+    case `/contacts/${subPath}`:
+      if (routers[2].handle(request, response) !== routerHandleResult.HANDLED) {
+        respondWith404NotFound(response);
+      };
+
+    default:
+      respondWith404NotFound(response);
+
+  }
+
+      // if (routers[0].handle(request, response) !== routerHandleResult.HANDLED) {
+      //   respondWith404NotFound(response);
+      // } 
+      
+     
+  
+
 };
