@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="tests" tests="15" failures="0" time="7.708">
-  <testsuite name="GET /ping" errors="0" failures="0" skipped="0" timestamp="2022-04-29T03:28:14" time="1.407" tests="1">
-    <testcase classname="GET /ping &gt; 200 OK with &quot;pong&quot; body is returned" name="GET /ping &gt; 200 OK with &quot;pong&quot; body is returned" time="0.504">
+<testsuites name="tests" tests="15" failures="0" time="7.593">
+  <testsuite name="GET /ping" errors="0" failures="0" skipped="0" timestamp="2022-04-29T03:52:16" time="1.205" tests="1">
+    <testcase classname="GET /ping &gt; 200 OK with &quot;pong&quot; body is returned" name="GET /ping &gt; 200 OK with &quot;pong&quot; body is returned" time="0.229">
     </testcase>
   </testsuite>
-  <testsuite name="server" errors="0" failures="0" skipped="0" timestamp="2022-04-29T03:28:14" time="1.409" tests="1">
-    <testcase classname="server &gt; 404 Not Found is returned for unexpected endpoint" name="server &gt; 404 Not Found is returned for unexpected endpoint" time="0.514">
+  <testsuite name="server" errors="0" failures="0" skipped="0" timestamp="2022-04-29T03:52:16" time="1.221" tests="1">
+    <testcase classname="server &gt; 404 Not Found is returned for unexpected endpoint" name="server &gt; 404 Not Found is returned for unexpected endpoint" time="0.23">
     </testcase>
   </testsuite>
-  <testsuite name="DELETE /contacts/&lt;contact-id&gt;" errors="0" failures="0" skipped="0" timestamp="2022-04-29T03:28:14" time="1.423" tests="1">
-    <testcase classname="DELETE /contacts/&lt;contact-id&gt; &gt; delete Contact by its ID" name="DELETE /contacts/&lt;contact-id&gt; &gt; delete Contact by its ID" time="0.413">
+  <testsuite name="GET /contacts/&lt;contact-id&gt;" errors="0" failures="0" skipped="0" timestamp="2022-04-29T03:52:16" time="1.236" tests="2">
+    <testcase classname="GET /contacts/&lt;contact-id&gt; &gt; get Contact by its ID" name="GET /contacts/&lt;contact-id&gt; &gt; get Contact by its ID" time="0.095">
+    </testcase>
+    <testcase classname="GET /contacts/&lt;contact-id&gt; &gt; get non-existent Contact by its ID &gt; HTTP status" name="GET /contacts/&lt;contact-id&gt; &gt; get non-existent Contact by its ID &gt; HTTP status" time="0.028">
     </testcase>
   </testsuite>
-  <testsuite name="GET /contacts/&lt;contact-id&gt;" errors="0" failures="0" skipped="0" timestamp="2022-04-29T03:28:14" time="1.482" tests="2">
-    <testcase classname="GET /contacts/&lt;contact-id&gt; &gt; get Contact by its ID" name="GET /contacts/&lt;contact-id&gt; &gt; get Contact by its ID" time="0.42">
-    </testcase>
-    <testcase classname="GET /contacts/&lt;contact-id&gt; &gt; get non-existent Contact by its ID &gt; HTTP status" name="GET /contacts/&lt;contact-id&gt; &gt; get non-existent Contact by its ID &gt; HTTP status" time="0.026">
+  <testsuite name="DELETE /contacts/&lt;contact-id&gt;" errors="0" failures="0" skipped="0" timestamp="2022-04-29T03:52:16" time="1.224" tests="1">
+    <testcase classname="DELETE /contacts/&lt;contact-id&gt; &gt; delete Contact by its ID" name="DELETE /contacts/&lt;contact-id&gt; &gt; delete Contact by its ID" time="0.103">
     </testcase>
   </testsuite>
-  <testsuite name="GET /contacts" errors="0" failures="0" skipped="0" timestamp="2022-04-29T03:28:14" time="1.727" tests="10">
-    <testcase classname="GET /contacts &gt; get all Contacts" name="GET /contacts &gt; get all Contacts" time="0.415">
+  <testsuite name="GET /contacts" errors="0" failures="0" skipped="0" timestamp="2022-04-29T03:52:16" time="1.54" tests="10">
+    <testcase classname="GET /contacts &gt; get all Contacts" name="GET /contacts &gt; get all Contacts" time="0.118">
     </testcase>
-    <testcase classname="GET /contacts &gt; Contacts are sorted by name" name="GET /contacts &gt; Contacts are sorted by name" time="0.023">
+    <testcase classname="GET /contacts &gt; Contacts are sorted by name" name="GET /contacts &gt; Contacts are sorted by name" time="0.028">
     </testcase>
-    <testcase classname="GET /contacts &gt; number of returned Contacts can be limited to a requested number" name="GET /contacts &gt; number of returned Contacts can be limited to a requested number" time="0.03">
+    <testcase classname="GET /contacts &gt; number of returned Contacts can be limited to a requested number" name="GET /contacts &gt; number of returned Contacts can be limited to a requested number" time="0.029">
     </testcase>
-    <testcase classname="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;-1&quot;)" name="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;-1&quot;)" time="0.03">
+    <testcase classname="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;-1&quot;)" name="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;-1&quot;)" time="0.032">
     </testcase>
-    <testcase classname="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;2.3&quot;)" name="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;2.3&quot;)" time="0.031">
+    <testcase classname="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;2.3&quot;)" name="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;2.3&quot;)" time="0.032">
     </testcase>
-    <testcase classname="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;x&quot;)" name="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;x&quot;)" time="0.032">
+    <testcase classname="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;x&quot;)" name="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;x&quot;)" time="0.031">
     </testcase>
-    <testcase classname="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;X&quot;)" name="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;X&quot;)" time="0.031">
+    <testcase classname="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;X&quot;)" name="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;X&quot;)" time="0.032">
     </testcase>
     <testcase classname="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;ddd&quot;)" name="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;ddd&quot;)" time="0.032">
     </testcase>
-    <testcase classname="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;e f&quot;)" name="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;e f&quot;)" time="0.03">
+    <testcase classname="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;e f&quot;)" name="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;e f&quot;)" time="0.031">
     </testcase>
     <testcase classname="GET /contacts &gt; empty Contact name phrase results with 400 Bad Request" name="GET /contacts &gt; empty Contact name phrase results with 400 Bad Request" time="0.031">
     </testcase>
