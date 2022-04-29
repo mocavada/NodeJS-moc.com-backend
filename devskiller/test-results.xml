@@ -1,296 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="tests" tests="15" failures="9" time="8.078">
-  <testsuite name="GET /contacts/&lt;contact-id&gt;" errors="0" failures="0" skipped="0" timestamp="2022-04-28T17:49:25" time="1.692" tests="2">
-    <testcase classname="GET /contacts/&lt;contact-id&gt; &gt; get Contact by its ID" name="GET /contacts/&lt;contact-id&gt; &gt; get Contact by its ID" time="0.417">
-    </testcase>
-    <testcase classname="GET /contacts/&lt;contact-id&gt; &gt; get non-existent Contact by its ID &gt; HTTP status" name="GET /contacts/&lt;contact-id&gt; &gt; get non-existent Contact by its ID &gt; HTTP status" time="0.034">
+<testsuites name="tests" tests="15" failures="0" time="7.708">
+  <testsuite name="GET /ping" errors="0" failures="0" skipped="0" timestamp="2022-04-29T03:28:14" time="1.407" tests="1">
+    <testcase classname="GET /ping &gt; 200 OK with &quot;pong&quot; body is returned" name="GET /ping &gt; 200 OK with &quot;pong&quot; body is returned" time="0.504">
     </testcase>
   </testsuite>
-  <testsuite name="GET /ping" errors="0" failures="0" skipped="0" timestamp="2022-04-28T17:49:25" time="1.678" tests="1">
-    <testcase classname="GET /ping &gt; 200 OK with &quot;pong&quot; body is returned" name="GET /ping &gt; 200 OK with &quot;pong&quot; body is returned" time="0.586">
+  <testsuite name="server" errors="0" failures="0" skipped="0" timestamp="2022-04-29T03:28:14" time="1.409" tests="1">
+    <testcase classname="server &gt; 404 Not Found is returned for unexpected endpoint" name="server &gt; 404 Not Found is returned for unexpected endpoint" time="0.514">
     </testcase>
   </testsuite>
-  <testsuite name="server" errors="0" failures="0" skipped="0" timestamp="2022-04-28T17:49:25" time="1.694" tests="1">
-    <testcase classname="server &gt; 404 Not Found is returned for unexpected endpoint" name="server &gt; 404 Not Found is returned for unexpected endpoint" time="0.583">
+  <testsuite name="DELETE /contacts/&lt;contact-id&gt;" errors="0" failures="0" skipped="0" timestamp="2022-04-29T03:28:14" time="1.423" tests="1">
+    <testcase classname="DELETE /contacts/&lt;contact-id&gt; &gt; delete Contact by its ID" name="DELETE /contacts/&lt;contact-id&gt; &gt; delete Contact by its ID" time="0.413">
     </testcase>
   </testsuite>
-  <testsuite name="DELETE /contacts/&lt;contact-id&gt;" errors="0" failures="1" skipped="0" timestamp="2022-04-28T17:49:25" time="1.735" tests="1">
-    <testcase classname="DELETE /contacts/&lt;contact-id&gt; &gt; delete Contact by its ID" name="DELETE /contacts/&lt;contact-id&gt; &gt; delete Contact by its ID" time="0.462">
-      <failure>Error: expect(received).toEqual(expected) // deep equality
-
-- Expected  -  0
-+ Received  + 10
-
-@@ -13,10 +13,20 @@
-      &quot;addressLines&quot;: Array [
-        &quot;any contact address line 1&quot;,
-        &quot;any contact address line 2&quot;,
-        &quot;any contact address line 3&quot;,
-      ],
-+     &quot;id&quot;: &quot;222&quot;,
-+     &quot;name&quot;: &quot;any contact name&quot;,
-+     &quot;phone&quot;: &quot;any contact phone&quot;,
-+   },
-+   Object {
-+     &quot;addressLines&quot;: Array [
-+       &quot;any contact address line 1&quot;,
-+       &quot;any contact address line 2&quot;,
-+       &quot;any contact address line 3&quot;,
-+     ],
-      &quot;id&quot;: &quot;333&quot;,
-      &quot;name&quot;: &quot;any contact name&quot;,
-      &quot;phone&quot;: &quot;any contact phone&quot;,
-    },
-  ]
-    at expectEqualContactsIgnoringOrder (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\src\tests\custom-assertions.js:4:38)
-    at Object.&lt;anonymous&gt; (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\src\tests\e2e\deleteContact.spec.js:28:5)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)</failure>
+  <testsuite name="GET /contacts/&lt;contact-id&gt;" errors="0" failures="0" skipped="0" timestamp="2022-04-29T03:28:14" time="1.482" tests="2">
+    <testcase classname="GET /contacts/&lt;contact-id&gt; &gt; get Contact by its ID" name="GET /contacts/&lt;contact-id&gt; &gt; get Contact by its ID" time="0.42">
+    </testcase>
+    <testcase classname="GET /contacts/&lt;contact-id&gt; &gt; get non-existent Contact by its ID &gt; HTTP status" name="GET /contacts/&lt;contact-id&gt; &gt; get non-existent Contact by its ID &gt; HTTP status" time="0.026">
     </testcase>
   </testsuite>
-  <testsuite name="GET /contacts" errors="0" failures="8" skipped="0" timestamp="2022-04-28T17:49:25" time="2.013" tests="10">
-    <testcase classname="GET /contacts &gt; get all Contacts" name="GET /contacts &gt; get all Contacts" time="0.454">
+  <testsuite name="GET /contacts" errors="0" failures="0" skipped="0" timestamp="2022-04-29T03:28:14" time="1.727" tests="10">
+    <testcase classname="GET /contacts &gt; get all Contacts" name="GET /contacts &gt; get all Contacts" time="0.415">
     </testcase>
-    <testcase classname="GET /contacts &gt; Contacts are sorted by name" name="GET /contacts &gt; Contacts are sorted by name" time="0.025">
+    <testcase classname="GET /contacts &gt; Contacts are sorted by name" name="GET /contacts &gt; Contacts are sorted by name" time="0.023">
     </testcase>
-    <testcase classname="GET /contacts &gt; number of returned Contacts can be limited to a requested number" name="GET /contacts &gt; number of returned Contacts can be limited to a requested number" time="0.037">
-      <failure>Error: expected [
-  {
-    id: &apos;1&apos;,
-    name: &apos;A&apos;,
-    phone: &apos;any contact phone&apos;,
-    addressLines: [
-      &apos;any contact address line 1&apos;,
-      &apos;any contact address line 2&apos;,
-      &apos;any contact address line 3&apos;
-    ]
-  },
-  {
-    id: &apos;2&apos;,
-    name: &apos;B&apos;,
-    phone: &apos;any contact phone&apos;,
-    addressLines: [
-      &apos;any contact address line 1&apos;,
-      &apos;any contact address line 2&apos;,
-      &apos;any contact address line 3&apos;
-    ]
-  }
-] response body, got [
-  {
-    id: &apos;1&apos;,
-    name: &apos;A&apos;,
-    phone: &apos;any contact phone&apos;,
-    addressLines: [
-      &apos;any contact address line 1&apos;,
-      &apos;any contact address line 2&apos;,
-      &apos;any contact address line 3&apos;
-    ]
-  },
-  {
-    id: &apos;2&apos;,
-    name: &apos;B&apos;,
-    phone: &apos;any contact phone&apos;,
-    addressLines: [
-      &apos;any contact address line 1&apos;,
-      &apos;any contact address line 2&apos;,
-      &apos;any contact address line 3&apos;
-    ]
-  },
-  {
-    id: &apos;3&apos;,
-    name: &apos;C&apos;,
-    phone: &apos;any contact phone&apos;,
-    addressLines: [
-      &apos;any contact address line 1&apos;,
-      &apos;any contact address line 2&apos;,
-      &apos;any contact address line 3&apos;
-    ]
-  }
-]
-    at error (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:301:13)
-    at Test._assertBody (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:205:14)
-    at Test._assertFunction (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:283:11)
-    at Test.assert (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:173:18)
-    at Server.localAssert (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:131:12)
-    at Object.onceWrapper (node:events:645:28)
-    at Server.emit (node:events:526:28)
-    at emitCloseNT (node:net:1677:8)
-    at processTicksAndRejections (node:internal/process/task_queues:82:21)</failure>
+    <testcase classname="GET /contacts &gt; number of returned Contacts can be limited to a requested number" name="GET /contacts &gt; number of returned Contacts can be limited to a requested number" time="0.03">
     </testcase>
-    <testcase classname="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;-1&quot;)" name="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;-1&quot;)" time="0.023">
-      <failure>Error: expected 400 &quot;Bad Request&quot;, got 200 &quot;OK&quot;
-    at Test._assertStatus (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:268:12)
-    at Test._assertFunction (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:283:11)
-    at Test.assert (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:173:18)
-    at Server.localAssert (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:131:12)
-    at Object.onceWrapper (node:events:645:28)
-    at Server.emit (node:events:526:28)
-    at emitCloseNT (node:net:1677:8)
-    at processTicksAndRejections (node:internal/process/task_queues:82:21)</failure>
+    <testcase classname="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;-1&quot;)" name="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;-1&quot;)" time="0.03">
     </testcase>
-    <testcase classname="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;2.3&quot;)" name="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;2.3&quot;)" time="0.03">
-      <failure>Error: expected 400 &quot;Bad Request&quot;, got 200 &quot;OK&quot;
-    at Test._assertStatus (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:268:12)
-    at Test._assertFunction (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:283:11)
-    at Test.assert (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:173:18)
-    at Server.localAssert (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:131:12)
-    at Object.onceWrapper (node:events:645:28)
-    at Server.emit (node:events:526:28)
-    at emitCloseNT (node:net:1677:8)
-    at processTicksAndRejections (node:internal/process/task_queues:82:21)</failure>
+    <testcase classname="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;2.3&quot;)" name="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;2.3&quot;)" time="0.031">
     </testcase>
-    <testcase classname="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;x&quot;)" name="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;x&quot;)" time="0.033">
-      <failure>Error: expected 400 &quot;Bad Request&quot;, got 200 &quot;OK&quot;
-    at Test._assertStatus (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:268:12)
-    at Test._assertFunction (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:283:11)
-    at Test.assert (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:173:18)
-    at Server.localAssert (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:131:12)
-    at Object.onceWrapper (node:events:645:28)
-    at Server.emit (node:events:526:28)
-    at emitCloseNT (node:net:1677:8)
-    at processTicksAndRejections (node:internal/process/task_queues:82:21)</failure>
+    <testcase classname="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;x&quot;)" name="GET /contacts &gt; invalid limit for returned Contacts results with 400 Bad Request (case: &quot;x&quot;)" time="0.032">
     </testcase>
-    <testcase classname="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;X&quot;)" name="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;X&quot;)" time="0.032">
-      <failure>Error: expected [
-  {
-    id: &apos;1&apos;,
-    name: &apos;aXc ddd e f&apos;,
-    phone: &apos;any contact phone&apos;,
-    addressLines: [
-      &apos;any contact address line 1&apos;,
-      &apos;any contact address line 2&apos;,
-      &apos;any contact address line 3&apos;
-    ]
-  }
-] response body, got [
-  {
-    id: &apos;1&apos;,
-    name: &apos;aXc ddd e f&apos;,
-    phone: &apos;any contact phone&apos;,
-    addressLines: [
-      &apos;any contact address line 1&apos;,
-      &apos;any contact address line 2&apos;,
-      &apos;any contact address line 3&apos;
-    ]
-  },
-  {
-    id: &apos;2&apos;,
-    name: &apos;ac dd e  f&apos;,
-    phone: &apos;any contact phone&apos;,
-    addressLines: [
-      &apos;any contact address line 1&apos;,
-      &apos;any contact address line 2&apos;,
-      &apos;any contact address line 3&apos;
-    ]
-  }
-]
-    at error (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:301:13)
-    at Test._assertBody (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:205:14)
-    at Test._assertFunction (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:283:11)
-    at Test.assert (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:173:18)
-    at Server.localAssert (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:131:12)
-    at Object.onceWrapper (node:events:645:28)
-    at Server.emit (node:events:526:28)
-    at emitCloseNT (node:net:1677:8)
-    at processTicksAndRejections (node:internal/process/task_queues:82:21)</failure>
+    <testcase classname="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;X&quot;)" name="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;X&quot;)" time="0.031">
     </testcase>
-    <testcase classname="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;ddd&quot;)" name="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;ddd&quot;)" time="0.031">
-      <failure>Error: expected [
-  {
-    id: &apos;1&apos;,
-    name: &apos;aXc ddd e f&apos;,
-    phone: &apos;any contact phone&apos;,
-    addressLines: [
-      &apos;any contact address line 1&apos;,
-      &apos;any contact address line 2&apos;,
-      &apos;any contact address line 3&apos;
-    ]
-  }
-] response body, got [
-  {
-    id: &apos;1&apos;,
-    name: &apos;aXc ddd e f&apos;,
-    phone: &apos;any contact phone&apos;,
-    addressLines: [
-      &apos;any contact address line 1&apos;,
-      &apos;any contact address line 2&apos;,
-      &apos;any contact address line 3&apos;
-    ]
-  },
-  {
-    id: &apos;2&apos;,
-    name: &apos;ac dd e  f&apos;,
-    phone: &apos;any contact phone&apos;,
-    addressLines: [
-      &apos;any contact address line 1&apos;,
-      &apos;any contact address line 2&apos;,
-      &apos;any contact address line 3&apos;
-    ]
-  }
-]
-    at error (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:301:13)
-    at Test._assertBody (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:205:14)
-    at Test._assertFunction (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:283:11)
-    at Test.assert (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:173:18)
-    at Server.localAssert (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:131:12)
-    at Object.onceWrapper (node:events:645:28)
-    at Server.emit (node:events:526:28)
-    at emitCloseNT (node:net:1677:8)
-    at processTicksAndRejections (node:internal/process/task_queues:82:21)</failure>
+    <testcase classname="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;ddd&quot;)" name="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;ddd&quot;)" time="0.032">
     </testcase>
-    <testcase classname="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;e f&quot;)" name="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;e f&quot;)" time="0.032">
-      <failure>Error: expected [
-  {
-    id: &apos;1&apos;,
-    name: &apos;aXc ddd e f&apos;,
-    phone: &apos;any contact phone&apos;,
-    addressLines: [
-      &apos;any contact address line 1&apos;,
-      &apos;any contact address line 2&apos;,
-      &apos;any contact address line 3&apos;
-    ]
-  }
-] response body, got [
-  {
-    id: &apos;1&apos;,
-    name: &apos;aXc ddd e f&apos;,
-    phone: &apos;any contact phone&apos;,
-    addressLines: [
-      &apos;any contact address line 1&apos;,
-      &apos;any contact address line 2&apos;,
-      &apos;any contact address line 3&apos;
-    ]
-  },
-  {
-    id: &apos;2&apos;,
-    name: &apos;ac dd e  f&apos;,
-    phone: &apos;any contact phone&apos;,
-    addressLines: [
-      &apos;any contact address line 1&apos;,
-      &apos;any contact address line 2&apos;,
-      &apos;any contact address line 3&apos;
-    ]
-  }
-]
-    at error (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:301:13)
-    at Test._assertBody (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:205:14)
-    at Test._assertFunction (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:283:11)
-    at Test.assert (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:173:18)
-    at Server.localAssert (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:131:12)
-    at Object.onceWrapper (node:events:645:28)
-    at Server.emit (node:events:526:28)
-    at emitCloseNT (node:net:1677:8)
-    at processTicksAndRejections (node:internal/process/task_queues:82:21)</failure>
+    <testcase classname="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;e f&quot;)" name="GET /contacts &gt; Contacts can filtered by a name part phrase (case &quot;e f&quot;)" time="0.03">
     </testcase>
-    <testcase classname="GET /contacts &gt; empty Contact name phrase results with 400 Bad Request" name="GET /contacts &gt; empty Contact name phrase results with 400 Bad Request" time="0.029">
-      <failure>Error: expected 400 &quot;Bad Request&quot;, got 200 &quot;OK&quot;
-    at Test._assertStatus (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:268:12)
-    at Test._assertFunction (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:283:11)
-    at Test.assert (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:173:18)
-    at Server.localAssert (C:\Users\marc.osmund.cavada\Desktop\FS\NodeJS-moc.com-backend\devskiller\node_modules\supertest\lib\test.js:131:12)
-    at Object.onceWrapper (node:events:645:28)
-    at Server.emit (node:events:526:28)
-    at emitCloseNT (node:net:1677:8)
-    at processTicksAndRejections (node:internal/process/task_queues:82:21)</failure>
+    <testcase classname="GET /contacts &gt; empty Contact name phrase results with 400 Bad Request" name="GET /contacts &gt; empty Contact name phrase results with 400 Bad Request" time="0.031">
     </testcase>
   </testsuite>
 </testsuites>

@@ -31,4 +31,9 @@ module.exports = {
     response.end(error);
   },
 
+  respondWith204NoContent: (response, error) => {
+    response.writeHead(204);
+    response.end();
+  },
+
 };

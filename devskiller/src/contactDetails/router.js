@@ -1,45 +1,52 @@
 const {
   urlPathOf,
-  urlQuery,
   respondWith200OkJson,
   respondWith404NotFound,
-  respondWith400BadRequest
+  respondWith204NoContent,
 } = require('../httpHelpers');
 const { fakeDatabase } = require('../database/fakeDatabase');
 const { routerHandleResult } = require('../routerHandleResult');
 
 function handle(request, response) {
 
-  var path = urlPathOf(request)
-  var contactId = path.split("/").pop();
-  var params =  urlQuery(request);
-  let getCustomer;
-  let customer = {};
-  console.log('DEBUG -', path, contactId);
+  const contactId = urlPathOf(request).split("/").pop();
+  const getContact = (id) => fakeDatabase.selectFromContactsById(id);
+  const deleteContact = (id) => fakeDatabase.deleteContactsById(id);
+  console.log('DEBUG -', contactId, getContact);
 
-  if (request.method !== 'GET') {
-    return routerHandleResult.NO_HTTP_METHOD_MATCH;      
-  }
-
-  if (path !== `/contacts/${contactId}`) {
+  if (urlPathOf(request) !== `/contacts/${contactId}`) {
     return routerHandleResult.NO_URL_PATH_MATCH;
   }
 
-  try {
-    getCustomer = fakeDatabase.selectFromContactsById(contactId);
-    customer = getCustomer[0];
+  if (request.method === 'GET') {
+    let customer;
+    try {
+      customer = getContact(contactId)[0];
+      if (!customer) {
+        return routerHandleResult.ID_NOT_FOUND;
+      }
+    } catch (error) {
+      return routerHandleResult.REQUEST_ERROR;
+    } 
+    respondWith200OkJson(response, customer);
+    return routerHandleResult.HANDLED; 
+  } 
 
-    if (getCustomer.length === 0) {
-      return routerHandleResult.ID_NOT_FOUND;
+
+  if (request.method === 'DELETE') {
+    try {
+      if (getContact(contactId).length === 0) {
+        return routerHandleResult.ID_NOT_FOUND;  
+      }
+      deleteContact(contactId);
+    } catch (error) {
+      return routerHandleResult.REQUEST_ERROR;
     }
+    respondWith204NoContent(response)
+    return routerHandleResult.HANDLED; 
+  } 
 
-  } catch (err) {
-    return routerHandleResult.SERVER_REQUEST_ERROR;
-  }
-
-  respondWith200OkJson(response, customer);
-  return routerHandleResult.HANDLED;
-  
+  return routerHandleResult.NO_HTTP_METHOD_MATCH;  
 }
 
 
