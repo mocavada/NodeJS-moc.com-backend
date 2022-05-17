@@ -10,14 +10,11 @@ contacts.forEach((contact) => {
 const server = createServer();
 
 server.on('request', (req, res) => {
-  console.log(req.method)
+  console.log(`Port Running on ${port} and Request Type is ${req.method}`)
 });
-
 
 const port = 8080;
 const ip = '127.0.0.1';
 
 server.listen(port, ip);
 
-
-console.log("TEST -");
