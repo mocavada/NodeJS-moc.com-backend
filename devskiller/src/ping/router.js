@@ -3,9 +3,12 @@ const { urlPathOf } = require('../httpHelpers');
 const { routerHandleResult } = require('../routerHandleResult');
 
 function handle(request, response) {
-  if (urlPathOf(request) !== '/ping') {
+  const path = urlPathOf(request);
+
+  if (!(path == '/' || path == '/ping')) {
     return routerHandleResult.NO_URL_PATH_MATCH;
   }
+
 
   if (request.method !== 'GET') {
     return routerHandleResult.NO_HTTP_METHOD_MATCH;
