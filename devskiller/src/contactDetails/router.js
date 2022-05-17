@@ -12,7 +12,6 @@ function handle(request, response) {
   const contactId = urlPathOf(request).split("/").pop();
   const getContact = (id) => fakeDatabase.selectFromContactsById(id);
   const deleteContact = (id) => fakeDatabase.deleteContactsById(id);
-  console.log('DEBUG -', contactId, getContact);
 
   if (urlPathOf(request) !== `/contacts/${contactId}`) {
     return routerHandleResult.NO_URL_PATH_MATCH;

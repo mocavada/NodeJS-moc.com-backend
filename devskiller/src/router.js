@@ -15,7 +15,6 @@ module.exports = function(request, response) {
 
   var pathURL = urlPathOf(request);
   var subPath = pathURL.split("/").pop();
-  console.log(subPath);
 
   switch(pathURL) {
     case '/':
@@ -37,13 +36,6 @@ module.exports = function(request, response) {
     default:
       respondWith404NotFound(response);
 
-  }
-
-      // if (routers[0].handle(request, response) !== routerHandleResult.HANDLED) {
-      //   respondWith404NotFound(response);
-      // } 
-      
-     
-  
+  }  
 
 };

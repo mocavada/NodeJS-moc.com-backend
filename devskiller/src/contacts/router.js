@@ -53,7 +53,6 @@ function handle(request, response) {
     }
 
     if (query.phrase) {
-      console.log(query.phrase);
       respondWith200OkJson(response, filteredContacts);
       return routerHandleResult.HANDLED;
     }

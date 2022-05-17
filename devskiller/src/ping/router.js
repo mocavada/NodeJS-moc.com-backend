@@ -5,8 +5,6 @@ const { routerHandleResult } = require('../routerHandleResult');
 function handle(request, response) {
   const path = urlPathOf(request);
 
-  console.log(path)
-
   if (!(path == '/' || path == '/ping')) {
     return routerHandleResult.NO_URL_PATH_MATCH;
   }
